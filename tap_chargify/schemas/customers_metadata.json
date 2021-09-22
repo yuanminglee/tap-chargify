@@ -1,0 +1,39 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "value": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "resource_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "deleted_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}
