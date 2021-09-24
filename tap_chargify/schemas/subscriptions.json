@@ -697,6 +697,24 @@
         "null",
         "integer"
       ]
+    },
+    "next_product_handle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "on_hold_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "prepaid_dunning": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     }
   }
 }

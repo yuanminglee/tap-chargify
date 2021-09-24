@@ -42,13 +42,14 @@ This tap:
 
 - **Endpoint**: https://reference.chargify.com/v1/customers/list-customers-for-a-site
 - **Primary key field**: id
-- **Replication strategy**: FULL_TABLE
+- **Replication strategy**: INCREMENTAL
 
 ### [events](https://reference.chargify.com/v1/events/list-events-for-a-site)
 
 - **Endpoint**: https://reference.chargify.com/v1/events/list-events-for-a-site
 - **Primary key field**: id
-- **Replication strategy**: FULL_TABLE
+- **Replication strategy**: INCREMENTAL
+- **Bookmark**: created_at
 
 ### [invoices](https://reference.chargify.com/v1/invoices-legacy/list-all-invoices-by-subscription)
 
@@ -57,9 +58,9 @@ This tap:
 - **Replication strategy**: INCREMENTAL
 - **Bookmark**: due_date
 
-### [price_points](https://reference.chargify.com/v1/products-price-points/read-product-price-points)
+### [components_price_points](https://reference.chargify.com/v1/components/list-price-points)
 
-- **Endpoint**: https://reference.chargify.com/v1/products-price-points/read-product-price-points
+- **Endpoint**: https://reference.chargify.com/v1/components/list-price-points
 - **Primary key field**: id
 - **Replication strategy**: FULL_TABLE
 
@@ -77,7 +78,7 @@ This tap:
 
 ### [statements](https://reference.chargify.com/v1/statements/list-statements-for-a-site)
 
-- **Endpoint**: https://reference.chargify.com/v1/statements/list-statements-for-a-site
+- **Endpoint**: https://reference.chargifys.com/v1/statements/list-statements-for-a-site
 - **Primary key field**: id
 - **Replication strategy**: FULL_TABLE
 
@@ -85,7 +86,8 @@ This tap:
 
 - **Endpoint**: https://reference.chargify.com/v1/subscriptions/list-subscriptions
 - **Primary key field**: id
-- **Replication strategy**: FULL_TABLE
+- **Replication strategy**: INCREMENTAL
+- **Bookmark**: updated_at
 
 ### [transactions](https://reference.chargify.com/v1/transactions/list-transactions-for-the-site)
 
