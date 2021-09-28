@@ -1,0 +1,65 @@
+{
+  "type": ["null","object"],
+  "properties": {
+    "unit_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "kind": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "component_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "subscription_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "allocated_quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "unit_balance": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "pricing_scheme": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "price_point_handle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

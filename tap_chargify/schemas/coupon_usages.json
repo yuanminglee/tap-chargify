@@ -1,0 +1,26 @@
+{
+  "type": ["null","object"],
+  "properties": {
+    "name": {
+      "type": ["null","string"]
+    },
+    "id": {
+      "type": ["null","integer"]
+    },
+    "signups": {
+      "type": ["null","integer"]
+    },
+    "savings": {
+      "type": ["null","string"]
+    },
+    "savings_in_cents": {
+      "type": ["null","string"]
+    },
+    "revenue": {
+      "type": ["null","string"]
+    },
+    "revenue_in_cents": {
+      "type": ["null","string"]
+    }
+  }
+}

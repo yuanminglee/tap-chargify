@@ -1,0 +1,29 @@
+{
+  "type": ["null","object"],
+  "properties": {
+    "memo": {
+      "type": ["null","string"]
+    },
+    "timestamp": {
+      "type": ["null","string"]
+    },
+    "quantity": {
+      "type": ["null","integer"]
+    },
+    "previous_quantity": {
+      "type": ["null","integer"]
+    },
+    "component_id": {
+      "type": ["null","integer"]
+    },
+    "subscription_id": {
+      "type": ["null","integer"]
+    },
+    "proration_upgrade_scheme": {
+      "type": ["null","string"]
+    },
+    "proration_downgrade_scheme": {
+      "type": ["null","string"]
+    }
+  }
+}

@@ -96,6 +96,35 @@ This tap:
 - **Replication strategy**: INCREMENTAL
 - **Bookmark**: created_at
 
+### [offers](https://reference.chargify.com/v1/offers/list-offers)
+
+- **Endpoint**: https://reference.chargify.com/v1/offers/list-offers
+- **Primary key field**: id
+- **Replication strategy**: FULL_TABLE
+
+### [product_price_points](https://reference.chargify.com/v1/products-price-points/read-product-price-points)
+
+- **Endpoint**: https://reference.chargify.com/v1/products-price-points/read-product-price-points
+- **Primary key field**: id
+- **Replication strategy**: FULL_TABLE
+
+### [subscriptions_components](https://reference.chargify.com/v1/subscriptions-components/list-components-for-a-subscription)
+
+- **Endpoint**: https://reference.chargify.com/v1/subscriptions-components/list-components-for-a-subscription
+- **Primary key field**: component_id,subscription_id
+- **Replication strategy**: FULL_TABLE
+
+### [coupon_usages](https://reference.chargify.com/v1/coupons/list-coupon-usages)
+
+- **Endpoint**: https://reference.chargify.com/v1/coupons/list-coupon-usages
+- **Primary key field**: id
+- **Replication strategy**: FULL_TABLE
+
+### [credit_notes](https://reference.chargify.com/v1/relationship-invoicing/read-all-credit-notes l)
+
+- **Endpoint**: https://reference.chargify.com/v1/relationship-invoicing/read-all-credit-notes l
+- **Primary key field**: uid
+- **Replication strategy**: FULL_TABLE
 --- 
 
 ## Quick Start
