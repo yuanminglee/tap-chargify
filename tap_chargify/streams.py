@@ -1,4 +1,3 @@
-
 #
 # Module dependencies.
 #
@@ -16,7 +15,6 @@ import time
 from singer import metadata
 from singer import utils
 from tap_chargify.context import Context
-
 
 logger = singer.get_logger()
 KEY_PROPERTIES = ['id']
@@ -45,16 +43,13 @@ class Stream:
     key_properties = KEY_PROPERTIES
     session_bookmark = None
 
-
     def __init__(self, client=None):
         self.client = client
-
 
     def is_session_bookmark_old(self, value):
         if self.session_bookmark is None:
             return True
         return utils.strptime_with_tz(value) > utils.strptime_with_tz(self.session_bookmark)
-
 
     def update_session_bookmark(self, value):
         # Assume value is epoch milliseconds.
@@ -62,12 +57,10 @@ class Stream:
         if self.is_session_bookmark_old(value_in_date_time):
             self.session_bookmark = value_in_date_time
 
-
     # Reads and converts bookmark from state.
     def get_bookmark(self, state, name=None):
         name = self.name if not name else name
         return (singer.get_bookmark(state, name, self.replication_key)) or Context.config["start_date"]
-
 
     def update_bookmark(self, state, value, name=None):
         name = self.name if not name else name
@@ -80,7 +73,6 @@ class Stream:
                 dt = dt.astimezone(pytz.utc)
             singer.write_bookmark(state, name, self.replication_key, dt.strftime("%Y-%m-%dT%H:%M:%SZ"))
 
-
     def is_bookmark_old(self, state, value, name=None):
         current_bookmark = self.get_bookmark(state, name)
         # dt = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S%z")
@@ -91,20 +83,17 @@ class Stream:
             dt = dt.astimezone(pytz.utc)
         return dt > utils.strptime_with_tz(current_bookmark)
 
-
     def load_schema(self):
         schema_file = "schemas/{}.json".format(self.name)
         with open(get_abs_path(schema_file)) as f:
             schema = json.load(f)
         return schema
 
-
     def load_metadata(self):
         return metadata.get_standard_metadata(schema=self.load_schema(),
                                               key_properties=self.key_properties,
                                               valid_replication_keys=[self.replication_key],
                                               replication_method=self.replication_method)
-
 
     # The main sync function.
     def sync(self, state):
@@ -126,6 +115,7 @@ class Stream:
     def get_data(self, bookmark=None):
         raise NotImplementedError
 
+
 class MetadataStream(Stream):
     def sync(self, state):
         bookmark = self.get_bookmark(state)
@@ -135,10 +125,12 @@ class MetadataStream(Stream):
         u = datetime.datetime.utcnow()
         self.update_bookmark(state, u.strftime("%Y-%m-%dT%H:%M:%SZ"))
 
+
 class Customers(Stream):
     name = "customers"
     replication_method = "INCREMENTAL"
     replication_key = "updated_at"
+
     # incremental
 
     def get_data(self, bookmark=None):
@@ -185,6 +177,7 @@ class PricePoints(Stream):
                             for m in o["price_points"]:
                                 yield m
 
+
 class Coupons(Stream):
     name = "coupons"
     replication_method = "FULL_TABLE"
@@ -210,13 +203,15 @@ class Components(Stream):
                     for l in j:
                         yield l["component"]
 
+
 class Subscriptions(Stream):
     name = "subscriptions"
     replication_method = "INCREMENTAL"
     replication_key = "updated_at"
 
     def get_data(self, bookmark=None):
-        for i in self.client.get("subscriptions.json", start_datetime=bookmark, date_field="updated_at", direction="asc"):
+        for i in self.client.get("subscriptions.json", start_datetime=bookmark, date_field="updated_at",
+                                 direction="asc"):
             for j in i:
                 yield j["subscription"]
 
@@ -225,6 +220,7 @@ class Transactions(Stream):
     name = "transactions"
     replication_method = "INCREMENTAL"
     replication_key = "created_at"
+
     # since API endpoint filter is only on date (and not datetime),
     # make sure to filter out redundant rows.
 
@@ -238,6 +234,7 @@ class Transactions(Stream):
 class Statements(Stream):
     name = "statements"
     replication_method = "FULL_TABLE"
+
     def get_data(self, bookmark=None):
         for i in self.client.get("statements.json"):
             for j in i:
@@ -249,13 +246,13 @@ class Invoices(Stream):
     replication_method = "FULL_TABLE"
     key_properties = ['uid']
 
-
     def get_data(self, bookmark=None):
         start_date = utils.strptime_with_tz(bookmark).strftime('%Y-%m-%d')
-        for i in self.client.get("invoices.json", xpath="invoices", start_date=start_date, direction="asc"):
+        for i in self.client.get("invoices.json", xpath="invoices", start_date=start_date,
+                                 direction="asc",line_items="true",discounts="true",taxes="true",credits="true",
+                                 refunds="true",payments="true"):
             for j in i["invoices"]:
                 yield j
-
 
 
 class Events(Stream):
@@ -264,8 +261,8 @@ class Events(Stream):
     replication_key = "created_at"
 
     def get_data(self, bookmark=None):
-        for i in self.client.get("events.json",start_datetime=bookmark, date_field="created_at",
-                          direction="asc"):
+        for i in self.client.get("events.json", start_datetime=bookmark, date_field="created_at",
+                                 direction="asc"):
             for j in i:
                 yield j["event"]
 
@@ -277,10 +274,12 @@ class CustomersMetadata(MetadataStream):
 
     def get_data(self, bookmark=None):
         xpath = "metadata"
-        for i in self.client.get("customers/metadata.json", xpath=xpath, start_datetime=bookmark, date_field="updated_at",
-                          direction="asc"):
+        for i in self.client.get("customers/metadata.json", xpath=xpath, start_datetime=bookmark,
+                                 date_field="updated_at",
+                                 direction="asc"):
             for j in i[xpath]:
                 yield j
+
 
 class SubsctiptionsMetadata(MetadataStream):
     name = "subscriptions_metadata"
@@ -290,8 +289,9 @@ class SubsctiptionsMetadata(MetadataStream):
 
     def get_data(self, bookmark=None):
         xpath = "metadata"
-        for i in self.client.get("subscriptions/metadata.json", xpath=xpath, start_datetime=bookmark, date_field="updated_at",
-                          direction="asc"):
+        for i in self.client.get("subscriptions/metadata.json", xpath=xpath, start_datetime=bookmark,
+                                 date_field="updated_at",
+                                 direction="asc"):
             for j in i[xpath]:
                 yield j
 
@@ -306,10 +306,100 @@ class ComponentsPricePoints(Stream):
                 for j in self.client.get("product_families/{product_family_id}/components.json".format(
                         product_family_id=k["product_family"]["id"])):
                     for l in j:
-                        for m in self.client.get("components/{component_id}/price_points.json".format(component_id=l["component"]["id"]), xpath="price_points"):
+                        for m in self.client.get(
+                                "components/{component_id}/price_points.json".format(component_id=l["component"]["id"]),
+                                xpath="price_points"):
                             for n in m["price_points"]:
                                 yield n
 
+
+class Offers(Stream):
+    name = "offers"
+    replication_method = "FULL_TABLE"
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("offers.json", xpath="offers"):
+            for j in i["offers"]:
+                yield j
+
+
+class ProductPricePoints(Stream):
+    name = "product_price_points"
+    replication_method = "FULL_TABLE"
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("product_families.json"):
+            for k in i:
+                for j in self.client.get("product_families/{product_family_id}/products.json".format(
+                        product_family_id=k["product_family"]["id"])):
+                    for l in j:
+                        for m in self.client.get(
+                                "/products/{product_id}/price_points.json".format(product_id=l["product"]["id"]),
+                                xpath="price_points"):
+                            for n in m["price_points"]:
+                                yield n
+
+
+class SubscriptionsComponents(Stream):
+    name = "subscriptions_components"
+    replication_method = "FULL_TABLE"
+    key_properties = ['component_id', 'subscription_id']
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("subscriptions.json"):
+            for j in i:
+                for k in self.client.get("subscriptions/{subscription_id}/components.json".format(
+                        subscription_id=j["subscription"]["id"])):
+                    for l in k:
+                        yield l["component"]
+
+
+class SubscriptionsComponentsAllocations(Stream):
+    name = "subscriptions_components_allocations"
+    replication_method = "FULL_TABLE"
+    key_properties = ['component_id', 'subscription_id']
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("subscriptions.json"):
+            for j in i:
+                for k in self.client.get("subscriptions/{subscription_id}/components.json".format(
+                        subscription_id=j["subscription"]["id"])):
+                    for l in k:
+                        for m in self.client.get(
+                                "subscriptions/{subscription_id}/components/{component_id}/allocations.js".format(
+                                    subscription_id=j["subscription"]["id"],
+                                    component_id=l["component"]["component_id"])):
+                            for n in m:
+                                yield n["allocation"]
+
+
+class CouponUsages(Stream):
+    name = "coupon_usages"
+    replication_method = "FULL_TABLE"
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("product_families.json"):
+            for k in i:
+                for j in self.client.get("product_families/{product_family_id}/coupons.json".format(
+                        product_family_id=k["product_family"]["id"])):
+                    for l in j:
+                        for m in self.client.get(
+                            "/product_families/{product_family_id}/coupons/{coupon_id}/usage.json".format(
+                                product_family_id=k["product_family"]["id"], coupon_id=l["coupon"]["id"])):
+                            for n in m:
+                                yield n
+
+
+class CreditNotes(Stream):
+    name = "credit_notes"
+    replication_method = "FULL_TABLE"
+    key_properties = ["uid"]
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("credit_notes.json",xpath="credit_notes",line_items="true",discounts="true",
+                                 taxes="true",applications="true",refunds="true"):
+            for k in i["credit_notes"]:
+                yield k
 
 STREAMS = {
     "customers": Customers,
@@ -326,4 +416,10 @@ STREAMS = {
     "events": Events,
     "customers_metadata": CustomersMetadata,
     "subscriptions_metadata": SubsctiptionsMetadata,
+    "offers": Offers,
+    "product_price_points": ProductPricePoints,
+    "subscriptions_components": SubscriptionsComponents,
+    # "subscriptions_components_allocations": SubscriptionsComponentsAllocations,
+    "coupon_usages": CouponUsages,
+    "credit_notes": CreditNotes,
 }
