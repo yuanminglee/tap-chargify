@@ -1,0 +1,122 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "current_vault": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vault_token": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_city": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_zip": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer_vault_token": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_address_2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bank_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "masked_bank_routing_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "masked_bank_account_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bank_account_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bank_account_holder_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

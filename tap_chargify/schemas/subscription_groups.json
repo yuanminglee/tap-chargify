@@ -1,0 +1,103 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "uid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "scheme": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "payment_profile_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "primary_subscription_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "next_assessment_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cancel_at_end_of_period": {
+      "type": "boolean"
+    },
+    "account_balances": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "prepayments": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "balance_in_cents": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        },
+        "service_credits": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "balance_in_cents": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        },
+        "pending_discounts": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "balance_in_cents": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

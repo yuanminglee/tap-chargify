@@ -1,0 +1,26 @@
+{
+  "type": ["null","object"],
+  "properties": {
+    "id": {
+      "type": ["null","integer"]
+    },
+    "site_id": {
+      "type": ["null","integer"]
+    },
+    "code": {
+      "type": ["null","string"]
+    },
+    "description": {
+      "type": ["null","string"]
+    },
+    "position": {
+      "type": ["null","integer"]
+    },
+    "created_at": {
+      "type": ["null","string"]
+    },
+    "updated_at": {
+      "type": ["null","string"]
+    }
+  }
+}

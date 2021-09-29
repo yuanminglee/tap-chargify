@@ -1,0 +1,40 @@
+{
+  "type": ["null","object"],
+  "properties": {
+    "subscription_id":{
+        "type":["null","integer"]
+    },
+    "open_invoices": {
+      "type": ["null","object"],
+      "properties": {
+        "balance_in_cents": {
+          "type": ["null","integer"]
+        }
+      }
+    },
+    "pending_discounts": {
+      "type": ["null","object"],
+      "properties": {
+        "balance_in_cents": {
+          "type": ["null","integer"]
+        }
+      }
+    },
+    "service_credits": {
+      "type": ["null","object"],
+      "properties": {
+        "balance_in_cents": {
+          "type": ["null","integer"]
+        }
+      }
+    },
+    "prepayments": {
+      "type": ["null","object"],
+      "properties": {
+        "balance_in_cents": {
+          "type": ["null","integer"]
+        }
+      }
+    }
+  }
+}

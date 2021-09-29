@@ -12,7 +12,7 @@ This tap:
   - [Coupons](https://reference.chargify.com/v1/coupons-editing/coupons-intro)
   - [Customers](https://reference.chargify.com/v1/customers/customers-intro)
   - [Events](https://reference.chargify.com/v1/events/events-intro)
-  - [Invoices](https://reference.chargify.com/v1/invoices-legacy/invoices)
+  - [Invoices](https://reference.chargify.com/v1/relationship-invoicing/relationship-invoicing-intro)
   - [Price points](https://reference.chargify.com/v1/products-price-points/product-price-point-intro)
   - [Product families](https://reference.chargify.com/v1/product-families/product-family-intro)
   - [Products](https://reference.chargify.com/v1/products/products-intro)
@@ -120,9 +120,39 @@ This tap:
 - **Primary key field**: id
 - **Replication strategy**: FULL_TABLE
 
-### [credit_notes](https://reference.chargify.com/v1/relationship-invoicing/read-all-credit-notes l)
+### [credit_notes](https://reference.chargify.com/v1/relationship-invoicing/read-all-credit-notes)
 
-- **Endpoint**: https://reference.chargify.com/v1/relationship-invoicing/read-all-credit-notes l
+- **Endpoint**: https://reference.chargify.com/v1/relationship-invoicing/read-all-credit-notes 
+- **Primary key field**: uid
+- **Replication strategy**: FULL_TABLE
+
+### [account_balances](https://reference.chargify.com/v1/relationship-invoicing/read-account-balances)
+
+- **Endpoint**: https://reference.chargify.com/v1/relationship-invoicing/read-account-balances
+- **Primary key field**: subscription_id
+- **Replication strategy**: FULL_TABLE
+
+### [payment_profiles](https://reference.chargify.com/v1/payment-profiles/list-payment-profiles)
+
+- **Endpoint**: https://reference.chargify.com/v1/payment-profiles/list-payment-profiles
+- **Primary key field**: id
+- **Replication strategy**: FULL_TABLE
+
+### [reason_codes](https://reference.chargify.com/v1/reason-codes/index-view)
+
+- **Endpoint**: https://reference.chargify.com/v1/reason-codes/index-view
+- **Primary key field**: id
+- **Replication strategy**: FULL_TABLE
+
+### [subscription_groups](https://reference.chargify.com/v1/subscription-groups/read-subscription-groups)
+
+- **Endpoint**: https://reference.chargify.com/v1/subscription-groups/read-subscription-groups
+- **Primary key field**: uid
+- **Replication strategy**: FULL_TABLE
+
+### [proforma_invoices](https://reference.chargify.com/v1/proforma-invoices/read-all-subscription-proforma-invoices )
+
+- **Endpoint**: https://reference.chargify.com/v1/proforma-invoices/read-all-subscription-proforma-invoices 
 - **Primary key field**: uid
 - **Replication strategy**: FULL_TABLE
 --- 

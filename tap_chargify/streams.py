@@ -401,6 +401,66 @@ class CreditNotes(Stream):
             for k in i["credit_notes"]:
                 yield k
 
+
+class AccountBalances(Stream):
+    name = "account_balances"
+    replication_method = "FULL_TABLE"
+    key_properties = ["subscription_id"]
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("subscriptions.json", start_datetime=bookmark, date_field="updated_at",
+                                 direction="asc"):
+            for j in i:
+                for k in self.client.get("subscriptions/{subscription_id}/account_balances.json".format(subscription_id=j["subscription"]["id"])):
+                    k["subscription_id"] = j["subscription"]["id"]
+                    yield k
+
+
+class PaymentProfiles(Stream):
+    name = "payment_profiles"
+    replication_method = "FULL_TABLE"
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("payment_profiles.json"):
+            for j in i:
+                yield j["payment_profile"]
+
+
+class ReasonCodes(Stream):
+    name = "reason_codes"
+    replication_method = "FULL_TABLE"
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("reason_codes.json"):
+            for j in i:
+                yield j["reason_code"]
+
+
+class SubscriptionGroups(Stream):
+    name = "subscription_groups"
+    replication_method = "FULL_TABLE"
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("subscription_groups.json",xpath="subscription_groups", include="account_balances"):
+            for j in i["subscription_groups"]:
+                yield j
+
+
+class ProformaInvoices(Stream):
+    name = "proforma_invoices"
+    replication_method = "FULL_TABLE"
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("subscriptions.json"):
+            for j in i:
+                for k in self.client.get("subscriptions/{subscription_id}/proforma_invoices.json"
+                                                 .format(subscription_id=j["subscription"]["id"]),
+                        xpath="proforma_invoices",line_items="true",discounts="true",taxes="true",credits="true",payments="true"):
+                    for m in k["proforma_invoices"]:
+                        yield m
+
+
+
 STREAMS = {
     "customers": Customers,
     "product_families": ProductFamilies,
@@ -422,4 +482,9 @@ STREAMS = {
     # "subscriptions_components_allocations": SubscriptionsComponentsAllocations,
     "coupon_usages": CouponUsages,
     "credit_notes": CreditNotes,
+    "account_balances": AccountBalances,
+    "payment_profiles": PaymentProfiles,
+    "reason_codes": ReasonCodes,
+    "subscription_groups": SubscriptionGroups,
+    "proforma_invoices": ProformaInvoices
 }
