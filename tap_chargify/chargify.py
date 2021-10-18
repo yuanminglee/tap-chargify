@@ -52,11 +52,16 @@ class Chargify(object):
       final_uri = uri + "?{params}".format(params=urlencode(params))
 
       logger.info("GET request to {final_uri}".format(final_uri=final_uri))
-      response = requests.get(final_uri, stream=stream, auth=HTTPBasicAuth(self.api_key, 'x'))
-      response.raise_for_status()
+      try:
+        response = requests.get(final_uri, stream=stream, auth=HTTPBasicAuth(self.api_key, 'x'))
+        response.raise_for_status()
+        page += 1
+        if len(response.json() if xpath is None else response.json()[xpath]) < per_page:
+          has_more = False
 
-      page += 1
-      if len(response.json() if xpath is None else response.json()[xpath]) < per_page:
-        has_more = False
+        yield response.json()
 
-      yield response.json()
+      except Exception as err:
+        logger.error('{}'.format(err))
+        logger.error('response content: {}'.format(response.content))
+        raise err
