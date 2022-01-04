@@ -1,64 +1,59 @@
 {
-  "type": "object",
+  "type": ["null","object"],
   "properties": {
-    "price_point": {
-      "type": ["null","object"],
-      "properties": {
-        "id": {
-          "type": ["null","integer"]
-        },
-        "name": {
-          "type": ["null","string"]
-        },
-        "handle": {
-          "type": ["null","string"]
-        },
-        "price_in_cents": {
-          "type": ["null","integer"]
-        },
-        "interval": {
-          "type": ["null","integer"]
-        },
-        "interval_unit": {
-          "type": ["null","string"]
-        },
-        "trial_price_in_cents": {
-          "type": ["null","integer"]
-        },
-        "trial_interval": {
-          "type": ["null","integer"]
-        },
-        "trial_interval_unit": {
-          "type": ["null","string"]
-        },
-        "trial_type": {
-          "type": ["null","string"]
-        },
-        "initial_charge_in_cents": {
-          "type": ["null","integer"]
-        },
-        "initial_charge_after_trial": {
-          "type": ["null","boolean"]
-        },
-        "expiration_interval": {
-          "type": ["null","integer"]
-        },
-        "expiration_interval_unit": {
-          "type": ["null","string"]
-        },
-        "product_id": {
-          "type": ["null","integer"]
-        },
-        "archived_at": {
-          "type": ["null","string"]
-        },
-        "created_at": {
-          "type": ["null","string"]
-        },
-        "updated_at": {
-          "type": ["null","string"]
-        }
-      }
+    "id": {
+      "type": ["null","integer"]
+    },
+    "name": {
+      "type": ["null","string"]
+    },
+    "handle": {
+      "type": ["null","string"]
+    },
+    "price_in_cents": {
+      "type": ["null","integer"]
+    },
+    "interval": {
+      "type": ["null","integer"]
+    },
+    "interval_unit": {
+      "type": ["null","string"]
+    },
+    "trial_price_in_cents": {
+      "type": ["null","integer"]
+    },
+    "trial_interval": {
+      "type": ["null","integer"]
+    },
+    "trial_interval_unit": {
+      "type": ["null","string"]
+    },
+    "trial_type": {
+      "type": ["null","string"]
+    },
+    "initial_charge_in_cents": {
+      "type": ["null","integer"]
+    },
+    "initial_charge_after_trial": {
+      "type": ["null","boolean"]
+    },
+    "expiration_interval": {
+      "type": ["null","integer"]
+    },
+    "expiration_interval_unit": {
+      "type": ["null","string"]
+    },
+    "product_id": {
+      "type": ["null","integer"]
+    },
+    "archived_at": {
+      "type": ["null","string"]
+    },
+    "created_at": {
+      "type": ["null","string"]
+    },
+    "updated_at": {
+      "type": ["null","string"]
     }
   }
 }
