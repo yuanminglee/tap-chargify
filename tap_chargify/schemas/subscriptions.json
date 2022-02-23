@@ -249,6 +249,27 @@
         "update_return_params": {
           "type": ["null", "string"]
         },
+        "default_product_price_point_id": {
+          "type": ["null", "integer"]
+        },
+        "request_billing_address": {
+          "type": ["null", "string"]
+        },
+        "require_billing_address": {
+          "type": ["null", "string"]
+        },
+        "require_shipping_address": {
+          "type": ["null", "string"]
+        },
+        "product_price_point_id": {
+          "type": ["null", "integer"]
+        },
+        "product_price_point_name": {
+          "type": ["null", "string"]
+        },
+        "product_price_point_handle": {
+          "type": ["null", "string"]
+        },
         "product_family": {
           "type": ["null", "object"],
           "properties": {
