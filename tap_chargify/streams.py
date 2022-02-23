@@ -281,7 +281,7 @@ class CustomersMetadata(MetadataStream):
                 yield j
 
 
-class SubsctiptionsMetadata(MetadataStream):
+class SubscriptionsMetadata(MetadataStream):
     name = "subscriptions_metadata"
 
     replication_method = "INCREMENTAL"
@@ -342,17 +342,12 @@ class ProductPricePoints(Stream):
 
 class SubscriptionsComponents(Stream):
     name = "subscriptions_components"
-    replication_method = "FULL_TABLE"
-    key_properties = ['component_id', 'subscription_id']
+    replication_method = "INCREMENTAL"
+    replication_key = "updated_at"
 
     def get_data(self, bookmark=None):
-        for i in self.client.get("subscriptions.json"):
-            for j in i:
-                for k in self.client.get("subscriptions/{subscription_id}/components.json".format(
-                        subscription_id=j["subscription"]["id"])):
-                    for l in k:
-                        yield l["component"]
-
+        for i in self.client.get("subscriptions_components.json"):
+            yield i["subscriptions_components"]
 
 class SubscriptionsComponentsAllocations(Stream):
     name = "subscriptions_components_allocations"
@@ -475,7 +470,7 @@ STREAMS = {
     "invoices": Invoices,
     "events": Events,
     "customers_metadata": CustomersMetadata,
-    "subscriptions_metadata": SubsctiptionsMetadata,
+    "subscriptions_metadata": SubscriptionsMetadata,
     "offers": Offers,
     "product_price_points": ProductPricePoints,
     "subscriptions_components": SubscriptionsComponents,
