@@ -2,10 +2,10 @@
   "type": ["null", "object"],
   "properties": {
     "id": {
-      "type": ["null", "string"]
+      "type": ["null", "integer"]
     },
     "name": {
-      "type": ["null", "integer"]
+      "type": ["null", "string"]
     },
     "kind": {
       "type": ["null", "string"]
