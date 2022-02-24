@@ -363,7 +363,7 @@ class SubscriptionsComponentsAllocations(Stream):
                         subscription_id=j["subscription"]["id"])):
                     for l in k:
                         for m in self.client.get(
-                                "subscriptions/{subscription_id}/components/{component_id}/allocations.js".format(
+                                "subscriptions/{subscription_id}/components/{component_id}/allocations.json".format(
                                     subscription_id=j["subscription"]["id"],
                                     component_id=l["component"]["component_id"])):
                             for n in m:
