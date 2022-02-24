@@ -345,11 +345,9 @@ class SubscriptionsComponents(Stream):
     replication_method = "FULL_TABLE"
 
     def get_data(self, bookmark=None):
-        for i in self.client.get("subscriptions_components.json",
-                                    start_datetime=bookmark,
-                                    date_field="updated_at",
-                                    direction="asc"):
-            yield i["subscriptions_components"]
+        for i in self.client.get("subscriptions_components.json"):
+            for j in i['subscriptions_components']:
+                yield j
 
 class SubscriptionsComponentsAllocations(Stream):
     name = "subscriptions_components_allocations"
@@ -476,7 +474,7 @@ STREAMS = {
     "offers": Offers,
     "product_price_points": ProductPricePoints,
     "subscriptions_components": SubscriptionsComponents,
-    # "subscriptions_components_allocations": SubscriptionsComponentsAllocations,
+    "subscriptions_components_allocations": SubscriptionsComponentsAllocations,
     "coupon_usages": CouponUsages,
     "credit_notes": CreditNotes,
     "account_balances": AccountBalances,

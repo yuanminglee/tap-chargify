@@ -11,13 +11,7 @@
       "type": ["null", "string"]
     },
     "unit_name": {
-      "type": ["null", "string"]
-    },
-    "unit_balance": {
-      "type": ["null", "integer"]
-    },
-    "overage_unit_balance": {
-      "type": ["null", "integer"]
+      "type": ["null","string"]
     },
     "currency": {
       "type": ["null", "string"]
@@ -26,9 +20,6 @@
       "type": ["null", "integer"]
     },
     "pricing_scheme": {
-      "type": ["null", "string"]
-    },
-    "overage_pricing_scheme": {
       "type": ["null", "string"]
     },
     "component_id": {
