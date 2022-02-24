@@ -342,10 +342,14 @@ class ProductPricePoints(Stream):
 
 class SubscriptionsComponents(Stream):
     name = "subscriptions_components"
-    replication_method = "FULL_TABLE"
+    replication_method = "INCREMENTAL"
+    replication_key = "updated_at"
 
     def get_data(self, bookmark=None):
-        for i in self.client.get("subscriptions_components.json"):
+        for i in self.client.get("subscriptions_components.json", 
+                                 start_datetime=bookmark, 
+                                 date_field="updated_at", 
+                                 direction="asc"):
             for j in i['subscriptions_components']:
                 yield j
 
