@@ -81,11 +81,36 @@
       "type": ["null", "string"],
       "format": "date-time"
     },
-    "coupon_codes": {
+    "coupon_code": {
       "type": ["null", "string"]
+    },
+    "coupon_codes": {
+      "type": ["null", "array"], 
+      "items": {
+        "type": ["null", "string"]
+      }
+    },
+    "automatically_resume_at": {
+      "type": ["null", "string"],
+      "format": "date-time"
     },
     "payment_collection_method": {
       "type": ["null", "string"]
+    },
+    "offer_id": {
+      "type": ["null", "string"]
+    },
+    "payer_id": {
+      "type": ["null", "integer"]
+    },
+    "prepayment_balance_in_cents": {
+      "type": ["null", "integer"]
+    },
+    "currency": {
+      "type": ["null", "string"]
+    },
+    "next_product_price_point_id": {
+      "type": ["null", "integer"]
     },
     "snap_day": {
       "type": ["null", "string"]
@@ -170,6 +195,23 @@
           "type": ["null", "boolean"]
         },
         "vat_number": {
+          "type": ["null", "string"]
+        }
+      }
+    },
+    "group": {
+      "type": ["null", "object"],
+      "properties": {
+        "uid": {
+          "type": ["null", "string"]
+        },
+        "scheme": {
+          "type": ["null", "string"]
+        },
+        "primary_subscription_id": {
+          "type": ["null", "string"]
+        },
+        "primary": {
           "type": ["null", "string"]
         }
       }
@@ -377,6 +419,12 @@
     "referral_code": {
       "type": ["null", "string"]
     },
+    "coupon_use_count": {
+      "type": ["null", "integer"]
+    },
+    "coupon_uses_allowed": {
+      "type": ["null", "integer"]
+    },
     "next_product_id": {
       "type": ["null", "integer"]
     },
@@ -384,6 +432,16 @@
       "type": ["null", "integer"]
     },
     "reference": {
+      "type": ["null", "string"]
+    },
+    "locale": {
+      "type": ["null", "string"]
+    },
+    "scheduled_cancellation_at": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "product_price_point_type": {
       "type": ["null", "string"]
     },
     "next_product_handle": {

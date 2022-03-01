@@ -152,6 +152,12 @@
         "null",
         "integer"
       ]
+    },
+    "locale": {
+      "type": [
+        "null", 
+        "string"
+      ]
     }
   }
 }

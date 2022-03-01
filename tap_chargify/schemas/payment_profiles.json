@@ -117,6 +117,18 @@
         "null",
         "string"
       ]
+    },
+    "site_gateway_setting_id": {
+      "type": [
+        "null", 
+        "integer"
+      ]
+    },
+    "gateway_handle": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
   }
 }

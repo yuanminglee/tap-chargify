@@ -131,6 +131,24 @@
         "string"
       ]
     },
+    "period_range_start": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "period_range_end": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "parent_id": {
       "type": [
         "null",
@@ -167,18 +185,6 @@
         "integer"
       ]
     },
-    "period_range_start": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "period_range_end": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "price_point_id": {
       "type": [
         "null",
@@ -207,6 +213,24 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "original_amount_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "discount_amount_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "taxable_amount_in_cents": {
+      "type": [
+        "null",
+        "integer"
       ]
     }
   }

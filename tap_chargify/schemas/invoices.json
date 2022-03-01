@@ -10,12 +10,6 @@
         "string"
       ]
     },
-    "statement_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "site_id": {
       "type": [
         "null",
@@ -153,12 +147,6 @@
         "object"
       ],
       "properties": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "name": {
           "type": [
             "null",
@@ -504,6 +492,12 @@
               "integer"
             ]
           },
+          "product_price_point_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
           "component_id": {
             "type": [
               "null",
@@ -803,6 +797,12 @@
               "null",
               "string"
             ]
+          },
+          "gateway_transaction_id": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       }
@@ -841,6 +841,12 @@
               },
               "type": {
                 "type": ["null","string"]
+              },
+              "memo": {
+                "type": ["null","string"]
+              }, 
+              "kind": {
+                "type": ["null","string"]
               }
             }
           },
@@ -853,7 +859,7 @@
         }
       }
     },
-    "state": {
+    "previous_balance_data": {
       "type": [
         "null",
         "object"
@@ -864,6 +870,23 @@
             "null",
             "string"
           ]
+        },
+        "invoices": {
+          "type": ["null","array"],
+          "items": {
+            "type": ["null","object"],
+            "properties": {
+              "uid": {
+                "type": ["null", "string"]
+              },
+              "number": {
+                "type": ["null", "string"]
+              }, 
+              "outstanding_amount": {
+                "type": ["null", "string"]
+              }
+            }
+          }
         }
       }
     },
@@ -872,301 +895,6 @@
         "null",
         "string"
       ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "total_amount_in_cents": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "paid_at": {
-      "type": [
-        "null",
-        "string"
-      ],
-      "format": "date-time"
-    },
-    "amount_due_in_cents": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "number": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "charges": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "created_at": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date-time"
-          },
-          "subscription_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "memo": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "kind": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "amount_in_cents": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "ending_balance_in_cents": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "success": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "payment_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "product_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "transaction_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "gateway_transaction_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "gateway_order_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "starting_balance_in_cents": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "component_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "tax_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "customer_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        }
-      }
-    },
-    "payments_and_credits": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "created_at": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date-time"
-          },
-          "subscription_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "memo": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "kind": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "amount_in_cents": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "ending_balance_in_cents": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "success": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "payment_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "product_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "transaction_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "gateway_transaction_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "gateway_order_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "starting_balance_in_cents": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "component_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "tax_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "customer_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "card_number": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "card_expiration": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "card_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
     }
   }
 }

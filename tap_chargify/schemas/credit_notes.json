@@ -66,6 +66,32 @@
         "string"
       ]
     },
+    "origin_invoices": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "uid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
     "memo": {
       "type": [
         "null",
@@ -682,32 +708,6 @@
             ]
           },
           "applied_amount": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
-    "origin_invoices": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "uid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "number": {
             "type": [
               "null",
               "string"
