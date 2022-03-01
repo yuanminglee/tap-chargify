@@ -22,6 +22,12 @@
         "string"
       ]
     },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "pricing_scheme": {
       "type": [
         "null",
@@ -100,6 +106,24 @@
             "type": [
               "null",
               "string"
+            ]
+          },
+          "price_point_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "formatted_unit_price": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "segment_id": {
+            "type": [
+              "null",
+              "integer"
             ]
           }
         }

@@ -125,6 +125,13 @@
       ],
       "format": "date-time"
     },
+    "archived_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
     "default_price_point_name": {
       "type": [
         "null",
@@ -186,9 +193,33 @@
               "null",
               "string"
             ]
+          },
+          "segment_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
           }
         }
       }
+    },
+    "exclude_from_migration_credit": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "hide_date_range_on_invoice": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "allow_fractional_quantities": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     }
   }
 }

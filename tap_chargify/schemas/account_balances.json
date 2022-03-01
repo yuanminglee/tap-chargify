@@ -9,6 +9,12 @@
       "properties": {
         "balance_in_cents": {
           "type": ["null","integer"]
+        },
+        "automatic_balance_in_cents": {
+          "type": ["null","integer"]
+        },
+        "remittance_balance_in_cents": {
+          "type": ["null","integer"]
         }
       }
     },
