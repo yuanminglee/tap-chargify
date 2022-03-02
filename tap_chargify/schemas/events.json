@@ -41,6 +41,42 @@
         "object"
       ],
       "properties": {
+        "allocation_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "new_allocation": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "previous_allocation": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "component_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "component_handle": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "memo": {
+          "type": [
+            "null",
+            "string"
+          ]       
+        },
         "account_transaction_id": {
           "type": [
             "null",
