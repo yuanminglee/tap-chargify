@@ -370,7 +370,7 @@ class SubscriptionsComponentsAllocations(Stream):
                                 yield n["allocation"]
 
 class EventsComponentsAllocationsChanges(Stream):
-    name = "events_allocations_components_changes"
+    name = "events_components_allocations_changes"
     replication_method = "INCREMENTAL"
     replication_key = "created_at"
 
@@ -488,7 +488,7 @@ STREAMS = {
     "product_price_points": ProductPricePoints,
     "subscriptions_components": SubscriptionsComponents,
     "subscriptions_components_allocations": SubscriptionsComponentsAllocations,
-    "events_allocations_components_changes": EventsComponentsAllocationsChanges,
+    "events_components_allocations_changes": EventsComponentsAllocationsChanges,
     "coupon_usages": CouponUsages,
     "credit_notes": CreditNotes,
     "account_balances": AccountBalances,
