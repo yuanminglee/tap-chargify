@@ -2,131 +2,150 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
+      "type": ["null", "integer"]
     },
     "site_id": {
-      "type": ["null","integer"]
+      "type": ["null", "integer"]
     },
     "product_family_id": {
-      "type": ["null","integer"]
+      "type": ["null", "integer"]
     },
     "product_family_name": {
-      "type": ["null","string"]
+      "type": ["null", "string"]
     },
     "product_id": {
-      "type": ["null","integer"]
+      "type": ["null", "integer"]
     },
     "product_name": {
-      "type": ["null","string"]
+      "type": ["null", "string"]
     },
     "product_price_in_cents": {
-      "type": ["null","integer"]
+      "type": ["null", "integer"]
     },
     "product_revisable_number": {
-      "type": ["null","integer"]
+      "type": ["null", "integer"]
     },
     "product_price_point_id": {
-      "type": ["null","integer"]
+      "type": ["null", "integer"]
     },
     "product_price_point_name": {
-      "type": ["null","string"]
+      "type": ["null", "string"]
     },
     "name": {
-      "type": ["null","string"]
+      "type": ["null", "string"]
     },
     "handle": {
-      "type": ["null","string"]
+      "type": ["null", "string"]
     },
     "description": {
-      "type": ["null","string"]
+      "type": ["null", "string"]
     },
     "created_at": {
-      "type": ["null","string"],
+      "type": ["null", "string"],
       "format": "date-time"
     },
     "updated_at": {
-      "type": ["null","string"],
+      "type": ["null", "string"],
       "format": "date-time"
     },
     "archived_at": {
-      "type": ["null","string"],
+      "type": ["null", "string"],
       "format": "date-time"
     },
     "offer_items": {
-      "type": ["null","array"],
+      "type": ["null", "array"],
       "items": {
-        "type": ["null","object"],
+        "type": ["null", "object"],
         "properties": {
           "component_id": {
-            "type": ["null","integer"]
+            "type": ["null", "integer"]
           },
           "component_name": {
-            "type": ["null","string"]
+            "type": ["null", "string"]
           },
           "component_unit_price": {
-            "type": ["null","string"]
+            "type": ["null", "string"]
           },
           "price_point_id": {
-            "type": ["null","integer"]
+            "type": ["null", "integer"]
           },
           "price_point_name": {
-            "type": ["null","string"]
+            "type": ["null", "string"]
           },
           "starting_quantity": {
-            "type": ["null","string"]
+            "type": ["null", "string"]
           },
           "editable": {
-            "type": ["null","boolean"]
+            "type": ["null", "boolean"]
           },
           "currency_prices": {
-            "type": ["null","array"],
-            "items": {}
+            "type": ["null", "array"],
+            "items": {
+              "type": ["null", "object"],
+              "properties": {
+                "id": {
+                  "type": ["null", "integer"]
+                },
+                "currency": {
+                  "type": ["null", "string"]
+                },
+                "price": {
+                  "type": ["null", "integer"]
+                },
+                "formatted_price": {
+                  "type": ["null", "string"]
+                },
+                "product_price_point_id": {
+                  "type": ["null", "integer"]
+                },
+                "role": {
+                  "type": ["null", "string"]
+                }
+              }
+            }
           }
         }
       }
     },
     "offer_discounts": {
-      "type": ["null","array"],
+      "type": ["null", "array"],
       "items": {
-        "type": ["null","object"],
+        "type": ["null", "object"],
         "properties": {
           "coupon_id": {
-            "type": ["null","integer"]
+            "type": ["null", "integer"]
           },
           "coupon_code": {
-            "type": ["null","string"]
+            "type": ["null", "string"]
           },
           "coupon_name": {
-            "type": ["null","string"]
+            "type": ["null", "string"]
           }
         }
       }
     },
     "offer_signup_pages": {
-      "type": ["null","array"],
+      "type": ["null", "array"],
       "items": {
-        "type": ["null","object"],
+        "type": ["null", "object"],
         "properties": {
           "id": {
-            "type": ["null","integer"]
+            "type": ["null", "integer"]
           },
           "nickname": {
-            "type": ["null","string"]
+            "type": ["null", "string"]
           },
           "enabled": {
-            "type": ["null","boolean"]
+            "type": ["null", "boolean"]
           },
           "return_url": {
-            "type": ["null","string"]
+            "type": ["null", "string"]
           },
           "return_params": {
-            "type": ["null","string"]
+            "type": ["null", "string"]
           },
           "url": {
-            "type": ["null","string"]
+            "type": ["null", "string"]
           }
         }
       }
