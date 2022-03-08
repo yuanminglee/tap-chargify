@@ -1,0 +1,89 @@
+{
+    "type": [
+        "null",
+        "object"
+    ],
+    "properties": {
+        "id": {
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
+        "key": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "message": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "subscription_id": {
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
+        "customer_id": {
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
+        "created_at": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "event_specific_data": {
+            "type": [
+                "null",
+                "object"
+            ],
+            "properties": {
+                "allocation_id": {
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "new_allocation": {
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "previous_allocation": {
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "component_id": {
+                    "type": [
+                        "null",
+                        "integer"
+                    ]
+                },
+                "component_handle": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "memo": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            }
+        }
+    }
+}

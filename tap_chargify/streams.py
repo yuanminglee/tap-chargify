@@ -369,6 +369,17 @@ class SubscriptionsComponentsAllocations(Stream):
                             for n in m:
                                 yield n["allocation"]
 
+class EventsComponentsAllocationsChanges(Stream):
+    name = "events_allocations_components_changes"
+    replication_method = "INCREMENTAL"
+    replication_key = "created_at"
+
+    def get_data(self, bookmark=None):
+        for i in self.client.get("events.json", start_datetime=bookmark, date_field="created_at",
+                                 direction="asc", filter='component_allocation_change'):
+            for j in i:
+                yield j["event"]
+
 
 class CouponUsages(Stream):
     name = "coupon_usages"
@@ -477,6 +488,7 @@ STREAMS = {
     "product_price_points": ProductPricePoints,
     "subscriptions_components": SubscriptionsComponents,
     "subscriptions_components_allocations": SubscriptionsComponentsAllocations,
+    "events_allocations_components_changes": EventsComponentsAllocationsChanges,
     "coupon_usages": CouponUsages,
     "credit_notes": CreditNotes,
     "account_balances": AccountBalances,
