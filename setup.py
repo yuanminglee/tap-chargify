@@ -6,7 +6,7 @@ setup(
     version="0.0.17",
     description="Singer.io tap for extracting Chargify data",
     author="Stitch",
-    url="http://github.com/singer-io/tap-chargify",
+    url="http://github.com/yuanminglee/tap-chargify",
     classifiers=["Programming Language :: Python :: 3 :: Only"],
     py_modules=["tap_chargify"],
     install_requires=[

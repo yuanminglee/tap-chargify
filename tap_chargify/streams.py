@@ -101,8 +101,6 @@ class Stream:
         res = self.get_data(bookmark)
 
         if self.replication_method == "INCREMENTAL":
-            # These streams results may not be ordered,
-            # so store highest value bookmark in session.
             for item in res:
                 # if item is bigger than bookmark, then
                 if self.is_bookmark_old(state, item[self.replication_key]):
@@ -131,8 +129,6 @@ class Customers(Stream):
     replication_method = "INCREMENTAL"
     replication_key = "updated_at"
 
-    # incremental
-
     def get_data(self, bookmark=None):
         for i in self.client.get("customers.json", start_datetime=bookmark, date_field="updated_at", direction="asc"):
             for j in i:
@@ -140,24 +136,26 @@ class Customers(Stream):
 
 
 class ProductFamilies(Stream):
-    replication_method = "FULL_TABLE"
     name = "product_families"
+    replication_method = "INCREMENTAL"
+    replication_key = "updated_at"
 
     def get_data(self, bookmark=None):
-        for i in self.client.get("product_families.json"):
+        for i in self.client.get("product_families.json", start_datetime=bookmark, date_field="updated_at", direction="asc"):
             for j in i:
                 yield j["product_family"]
 
 
 class Products(Stream):
     name = "products"
-    replication_method = "FULL_TABLE"
+    replication_method = "INCREMENTAL"
+    replication_key = "updated_at"
 
     def get_data(self, bookmark=None):
         for i in self.client.get("product_families.json"):
             for k in i:
                 for j in self.client.get("product_families/{product_family_id}/products.json".format(
-                        product_family_id=k["product_family"]["id"])):
+                        product_family_id=k["product_family"]["id"]), start_datetime=bookmark, date_field="updated_at", direction="asc"):
                     for l in j:
                         yield l["product"]
 
