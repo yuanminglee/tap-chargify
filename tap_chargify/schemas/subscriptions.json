@@ -85,7 +85,7 @@
       "type": ["null", "string"]
     },
     "coupon_codes": {
-      "type": ["null", "array"], 
+      "type": ["null", "array"],
       "items": {
         "type": ["null", "string"]
       }
@@ -189,7 +189,8 @@
           "format": "date-time"
         },
         "portal_invite_last_accepted_at": {
-          "type": ["null", "number"]
+          "type": ["null", "string"],
+          "format": "date-time"
         },
         "tax_exempt": {
           "type": ["null", "boolean"]
